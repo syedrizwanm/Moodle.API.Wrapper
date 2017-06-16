@@ -1,0 +1,32 @@
+using System.Collections.Generic;
+
+namespace Moodle.API.Wrapper.Models.Core
+{
+	public sealed class ImportCourseInputModel : IModel 
+	{
+		public int deletecontent {get;set;}
+		public int importfrom {get;set;}
+		public int importto {get;set;}
+		public List<OptionInputModel> options {get;set;}
+
+
+		public List<KeyValuePair<string,string>> ToKeyValuePairs(string prefix="")
+		{
+			var keyValuePairs = new List<KeyValuePair<string,string>>();
+
+			keyValuePairs.Add(new KeyValuePair<string,string>(ModelHelper.GetPrefixedName("deletecontent",prefix),deletecontent.ToString()));
+			keyValuePairs.Add(new KeyValuePair<string,string>(ModelHelper.GetPrefixedName("importfrom",prefix),importfrom.ToString()));
+			keyValuePairs.Add(new KeyValuePair<string,string>(ModelHelper.GetPrefixedName("importto",prefix),importto.ToString()));
+
+			for(var optionsIndex = 0; optionsIndex<options.Count;optionsIndex++) 
+			{
+				var optionsItem = options[optionsIndex];
+				var optionsItems = optionsItem.ToKeyValuePairs("options[" + optionsIndex + "]");
+				keyValuePairs.AddRange(optionsItems);
+			}
+
+			return keyValuePairs;
+		}
+
+	}
+}

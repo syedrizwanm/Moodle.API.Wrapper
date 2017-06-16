@@ -1,0 +1,108 @@
+using System.Collections.Generic;
+
+namespace Moodle.API.Wrapper.Models.Mod
+{
+	public sealed class User : IModel 
+	{
+
+		public string address {get;set;}
+		public string aim {get;set;}
+		public string auth {get;set;}
+		public string calendartype {get;set;}
+		public string city {get;set;}
+		public int confirmed {get;set;}
+		public string country {get;set;}
+		public List<Customfield> customfields {get;set;}
+		public string department {get;set;}
+		public string description {get;set;}
+		public int descriptionformat {get;set;}
+		public string email {get;set;}
+		public int firstaccess {get;set;}
+		public string firstname {get;set;}
+		public string fullname {get;set;}
+		public string icq {get;set;}
+		public int id {get;set;}
+		public string idnumber {get;set;}
+		public string institution {get;set;}
+		public string interests {get;set;}
+		public string lang {get;set;}
+		public int lastaccess {get;set;}
+		public string lastname {get;set;}
+		public int mailformat {get;set;}
+		public string msn {get;set;}
+		public string phone1 {get;set;}
+		public string phone2 {get;set;}
+		public List<Preference> preferences {get;set;}
+		public string profileimageurl {get;set;}
+		public string profileimageurlsmall {get;set;}
+		public string skype {get;set;}
+		public int suspended {get;set;}
+		public string theme {get;set;}
+		public string timezone {get;set;}
+		public string url {get;set;}
+		public string username {get;set;}
+		public string yahoo {get;set;}
+
+
+
+
+		public List<KeyValuePair<string,string>> ToKeyValuePairs(string prefix="")
+		{
+			var keyValuePairs = new List<KeyValuePair<string,string>>();
+
+			keyValuePairs.Add(new KeyValuePair<string,string>(ModelHelper.GetPrefixedName("address",prefix),address));
+			keyValuePairs.Add(new KeyValuePair<string,string>(ModelHelper.GetPrefixedName("aim",prefix),aim));
+			keyValuePairs.Add(new KeyValuePair<string,string>(ModelHelper.GetPrefixedName("auth",prefix),auth));
+			keyValuePairs.Add(new KeyValuePair<string,string>(ModelHelper.GetPrefixedName("calendartype",prefix),calendartype));
+			keyValuePairs.Add(new KeyValuePair<string,string>(ModelHelper.GetPrefixedName("city",prefix),city));
+			keyValuePairs.Add(new KeyValuePair<string,string>(ModelHelper.GetPrefixedName("confirmed",prefix),confirmed.ToString()));
+			keyValuePairs.Add(new KeyValuePair<string,string>(ModelHelper.GetPrefixedName("country",prefix),country));
+
+			for(var customfieldsIndex = 0; customfieldsIndex<customfields.Count;customfieldsIndex++) 
+			{
+				var customfieldsItem = customfields[customfieldsIndex];
+				var customfieldsItems = customfieldsItem.ToKeyValuePairs("customfields[" + customfieldsIndex + "]");
+				keyValuePairs.AddRange(customfieldsItems);
+			}
+
+			keyValuePairs.Add(new KeyValuePair<string,string>(ModelHelper.GetPrefixedName("department",prefix),department));
+			keyValuePairs.Add(new KeyValuePair<string,string>(ModelHelper.GetPrefixedName("description",prefix),description));
+			keyValuePairs.Add(new KeyValuePair<string,string>(ModelHelper.GetPrefixedName("descriptionformat",prefix),descriptionformat.ToString()));
+			keyValuePairs.Add(new KeyValuePair<string,string>(ModelHelper.GetPrefixedName("email",prefix),email));
+			keyValuePairs.Add(new KeyValuePair<string,string>(ModelHelper.GetPrefixedName("firstaccess",prefix),firstaccess.ToString()));
+			keyValuePairs.Add(new KeyValuePair<string,string>(ModelHelper.GetPrefixedName("firstname",prefix),firstname));
+			keyValuePairs.Add(new KeyValuePair<string,string>(ModelHelper.GetPrefixedName("fullname",prefix),fullname));
+			keyValuePairs.Add(new KeyValuePair<string,string>(ModelHelper.GetPrefixedName("icq",prefix),icq));
+			keyValuePairs.Add(new KeyValuePair<string,string>(ModelHelper.GetPrefixedName("id",prefix),id.ToString()));
+			keyValuePairs.Add(new KeyValuePair<string,string>(ModelHelper.GetPrefixedName("idnumber",prefix),idnumber));
+			keyValuePairs.Add(new KeyValuePair<string,string>(ModelHelper.GetPrefixedName("institution",prefix),institution));
+			keyValuePairs.Add(new KeyValuePair<string,string>(ModelHelper.GetPrefixedName("interests",prefix),interests));
+			keyValuePairs.Add(new KeyValuePair<string,string>(ModelHelper.GetPrefixedName("lang",prefix),lang));
+			keyValuePairs.Add(new KeyValuePair<string,string>(ModelHelper.GetPrefixedName("lastaccess",prefix),lastaccess.ToString()));
+			keyValuePairs.Add(new KeyValuePair<string,string>(ModelHelper.GetPrefixedName("lastname",prefix),lastname));
+			keyValuePairs.Add(new KeyValuePair<string,string>(ModelHelper.GetPrefixedName("mailformat",prefix),mailformat.ToString()));
+			keyValuePairs.Add(new KeyValuePair<string,string>(ModelHelper.GetPrefixedName("msn",prefix),msn));
+			keyValuePairs.Add(new KeyValuePair<string,string>(ModelHelper.GetPrefixedName("phone1",prefix),phone1));
+			keyValuePairs.Add(new KeyValuePair<string,string>(ModelHelper.GetPrefixedName("phone2",prefix),phone2));
+
+			for(var preferencesIndex = 0; preferencesIndex<preferences.Count;preferencesIndex++) 
+			{
+				var preferencesItem = preferences[preferencesIndex];
+				var preferencesItems = preferencesItem.ToKeyValuePairs("preferences[" + preferencesIndex + "]");
+				keyValuePairs.AddRange(preferencesItems);
+			}
+
+			keyValuePairs.Add(new KeyValuePair<string,string>(ModelHelper.GetPrefixedName("profileimageurl",prefix),profileimageurl));
+			keyValuePairs.Add(new KeyValuePair<string,string>(ModelHelper.GetPrefixedName("profileimageurlsmall",prefix),profileimageurlsmall));
+			keyValuePairs.Add(new KeyValuePair<string,string>(ModelHelper.GetPrefixedName("skype",prefix),skype));
+			keyValuePairs.Add(new KeyValuePair<string,string>(ModelHelper.GetPrefixedName("suspended",prefix),suspended.ToString()));
+			keyValuePairs.Add(new KeyValuePair<string,string>(ModelHelper.GetPrefixedName("theme",prefix),theme));
+			keyValuePairs.Add(new KeyValuePair<string,string>(ModelHelper.GetPrefixedName("timezone",prefix),timezone));
+			keyValuePairs.Add(new KeyValuePair<string,string>(ModelHelper.GetPrefixedName("url",prefix),url));
+			keyValuePairs.Add(new KeyValuePair<string,string>(ModelHelper.GetPrefixedName("username",prefix),username));
+			keyValuePairs.Add(new KeyValuePair<string,string>(ModelHelper.GetPrefixedName("yahoo",prefix),yahoo));
+			return keyValuePairs;
+		}
+
+	}
+}
