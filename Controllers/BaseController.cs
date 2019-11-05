@@ -1,13 +1,9 @@
-﻿using Moodle.API.Wrapper.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
+using Moodle.Api.Models;
 
-
-namespace Moodle.API.Wrapper.Controllers
+namespace Moodle.Api.Controllers
 {
     public class BaseController
     {

@@ -1,11 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Moodle.API.Wrapper.Models.Message;
+using Moodle.Api.Models.Message;
 
-namespace Moodle.API.Wrapper.Controllers.Message
+namespace Moodle.Api.Controllers.Message
 {
 	public sealed class Airnotifier : BaseController
 	{

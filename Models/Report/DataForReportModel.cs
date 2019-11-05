@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Moodle.API.Wrapper.Models.Report
+namespace Moodle.Api.Models.Report
 {
 	public sealed class DataForReportModel : IModel 
 	{

@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Moodle.API.Wrapper.Models.Enrol
+namespace Moodle.Api.Models.Enrol
 {
 	public sealed class Warning : IModel 
 	{

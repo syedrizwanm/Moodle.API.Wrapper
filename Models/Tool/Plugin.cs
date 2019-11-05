@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Moodle.API.Wrapper.Models.Tool
+namespace Moodle.Api.Models.Tool
 {
 	public sealed class Plugin : IModel 
 	{

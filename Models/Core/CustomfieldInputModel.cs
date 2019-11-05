@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Moodle.API.Wrapper.Models.Core
+namespace Moodle.Api.Models.Core
 {
 	public sealed class CustomfieldInputModel : IModel 
 	{

@@ -1,11 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Moodle.API.Wrapper.Models.Report;
+using Moodle.Api.Models.Report;
 
-namespace Moodle.API.Wrapper.Controllers.Report
+namespace Moodle.Api.Controllers.Report
 {
 	public sealed class Competency : BaseController
 	{

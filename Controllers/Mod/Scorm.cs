@@ -1,11 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Moodle.API.Wrapper.Models.Mod;
+using Moodle.Api.Models.Mod;
 
-namespace Moodle.API.Wrapper.Controllers.Mod
+namespace Moodle.Api.Controllers.Mod
 {
 	public sealed class Scorm : BaseController
 	{

@@ -1,11 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Moodle.API.Wrapper.Models.Gradereport;
+using Moodle.Api.Models.Gradereport;
 
-namespace Moodle.API.Wrapper.Controllers.Gradereport
+namespace Moodle.Api.Controllers.Gradereport
 {
 	public sealed class Overview : BaseController
 	{

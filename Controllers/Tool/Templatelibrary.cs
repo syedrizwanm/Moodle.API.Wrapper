@@ -1,11 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Moodle.API.Wrapper.Models.Tool;
+using Moodle.Api.Models.Tool;
 
-namespace Moodle.API.Wrapper.Controllers.Tool
+namespace Moodle.Api.Controllers.Tool
 {
 	public sealed class Templatelibrary : BaseController
 	{

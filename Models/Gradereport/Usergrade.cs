@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Moodle.API.Wrapper.Models.Gradereport
+namespace Moodle.Api.Models.Gradereport
 {
 	public sealed class Usergrade : IModel 
 	{
