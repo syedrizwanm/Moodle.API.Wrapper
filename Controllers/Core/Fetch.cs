@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Moodle.Api.Models.Core;
 
 namespace Moodle.Api.Controllers.Core
@@ -13,7 +14,7 @@ namespace Moodle.Api.Controllers.Core
 		{
 		}
 
-		public NotificationsModel Notifications(NotificationsInputModel notificationsInputModel)
+		public Task<NotificationsModel> Notifications(NotificationsInputModel notificationsInputModel)
 		{
 			return Post<NotificationsModel,NotificationsInputModel>("core_fetch_notifications", notificationsInputModel);
 		}

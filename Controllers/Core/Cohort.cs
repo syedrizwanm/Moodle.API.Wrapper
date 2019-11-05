@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Moodle.Api.Models.Core;
 
 namespace Moodle.Api.Controllers.Core
@@ -13,39 +14,39 @@ namespace Moodle.Api.Controllers.Core
 		{
 		}
 
-		public CohortMembersModel AddCohortMembers(CohortMembersInputModel cohortMembersInputModel)
+		public Task<CohortMembersModel> AddCohortMembers(CohortMembersInputModel cohortMembersInputModel)
 		{
 			return Post<CohortMembersModel,CohortMembersInputModel>("core_cohort_add_cohort_members", cohortMembersInputModel);
 		}
 
-		public CohortsModel CreateCohorts(CohortsInputModel cohortsInputModel)
+		public Task<CohortsModel> CreateCohorts(CohortsInputModel cohortsInputModel)
 		{
 			return Post<CohortsModel,CohortsInputModel>("core_cohort_create_cohorts", cohortsInputModel);
 		}
 
-		public void DeleteCohortMembers(DeleteCohortMembersInputModel deleteCohortMembersInputModel)
+		public Task DeleteCohortMembers(DeleteCohortMembersInputModel deleteCohortMembersInputModel)
 		{
-			Post<DeleteCohortMembersInputModel>("core_cohort_delete_cohort_members", deleteCohortMembersInputModel);
+			return Post<DeleteCohortMembersInputModel>("core_cohort_delete_cohort_members", deleteCohortMembersInputModel);
 		}
 
-		public void DeleteCohorts(DeleteCohortsInputModel deleteCohortsInputModel)
+		public Task DeleteCohorts(DeleteCohortsInputModel deleteCohortsInputModel)
 		{
-			Post<DeleteCohortsInputModel>("core_cohort_delete_cohorts", deleteCohortsInputModel);
+			return Post<DeleteCohortsInputModel>("core_cohort_delete_cohorts", deleteCohortsInputModel);
 		}
 
-		public GetCohortMembers GetCohortMembers(DeleteCohortsInputModel deleteCohortsInputModel)
+		public Task<GetCohortMembers> GetCohortMembers(DeleteCohortsInputModel deleteCohortsInputModel)
 		{
 			return Post<GetCohortMembers,DeleteCohortsInputModel>("core_cohort_get_cohort_members", deleteCohortsInputModel);
 		}
 
-		public CohortsModel GetCohorts(DeleteCohortsInputModel deleteCohortsInputModel)
+		public Task<CohortsModel> GetCohorts(DeleteCohortsInputModel deleteCohortsInputModel)
 		{
 			return Post<CohortsModel,DeleteCohortsInputModel>("core_cohort_get_cohorts", deleteCohortsInputModel);
 		}
 
-		public void UpdateCohorts(CohortsInputModel cohortsInputModel)
+		public Task UpdateCohorts(CohortsInputModel cohortsInputModel)
 		{
-			Post<CohortsInputModel>("core_cohort_update_cohorts", cohortsInputModel);
+			return Post<CohortsInputModel>("core_cohort_update_cohorts", cohortsInputModel);
 		}
 
 		//Function Placeholder

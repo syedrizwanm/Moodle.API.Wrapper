@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Moodle.Api.Models.Tool;
 
 namespace Moodle.Api.Controllers.Tool
@@ -13,12 +14,12 @@ namespace Moodle.Api.Controllers.Tool
 		{
 		}
 
-		public TemplatesModel ListTemplates(TemplatesInputModel templatesInputModel)
+		public Task<TemplatesModel> ListTemplates(TemplatesInputModel templatesInputModel)
 		{
 			return Post<TemplatesModel,TemplatesInputModel>("tool_templatelibrary_list_templates", templatesInputModel);
 		}
 
-		public string LoadCanonicalTemplate(LoadCanonicalTemplateInputModel loadCanonicalTemplateInputModel)
+		public Task<string> LoadCanonicalTemplate(LoadCanonicalTemplateInputModel loadCanonicalTemplateInputModel)
 		{
 			return Post<string,LoadCanonicalTemplateInputModel>("tool_templatelibrary_load_canonical_template", loadCanonicalTemplateInputModel);
 		}

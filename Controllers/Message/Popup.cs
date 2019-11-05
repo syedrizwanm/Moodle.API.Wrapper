@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Moodle.Api.Models.Message;
 
 namespace Moodle.Api.Controllers.Message
@@ -13,12 +14,12 @@ namespace Moodle.Api.Controllers.Message
 		{
 		}
 
-		public PopupNotificationsModel GetPopupNotifications(PopupNotificationsInputModel popupNotificationsInputModel)
+		public Task<PopupNotificationsModel> GetPopupNotifications(PopupNotificationsInputModel popupNotificationsInputModel)
 		{
 			return Post<PopupNotificationsModel,PopupNotificationsInputModel>("message_popup_get_popup_notifications", popupNotificationsInputModel);
 		}
 
-		public int GetUnreadPopupNotificationCount(UnreadConversationsCountInputModel unreadConversationsCountInputModel)
+		public Task<int> GetUnreadPopupNotificationCount(UnreadConversationsCountInputModel unreadConversationsCountInputModel)
 		{
 			return Post<int,UnreadConversationsCountInputModel>("message_popup_get_unread_popup_notification_count", unreadConversationsCountInputModel);
 		}

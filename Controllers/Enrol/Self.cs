@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Moodle.Api.Models.Enrol;
 
 namespace Moodle.Api.Controllers.Enrol
@@ -13,12 +14,12 @@ namespace Moodle.Api.Controllers.Enrol
 		{
 		}
 
-		public MarkCourseSelfCompletedModel EnrolUser(EnrolUserInputModel enrolUserInputModel)
+		public Task<MarkCourseSelfCompletedModel> EnrolUser(EnrolUserInputModel enrolUserInputModel)
 		{
 			return Post<MarkCourseSelfCompletedModel,EnrolUserInputModel>("enrol_self_enrol_user", enrolUserInputModel);
 		}
 
-		public GetInstanceInfo GetInstanceInfo(InstanceInfoInputModel instanceInfoInputModel)
+		public Task<GetInstanceInfo> GetInstanceInfo(InstanceInfoInputModel instanceInfoInputModel)
 		{
 			return Post<GetInstanceInfo,InstanceInfoInputModel>("enrol_self_get_instance_info", instanceInfoInputModel);
 		}

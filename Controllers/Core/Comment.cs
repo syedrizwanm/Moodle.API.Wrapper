@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Moodle.Api.Models.Core;
 
 namespace Moodle.Api.Controllers.Core
@@ -13,7 +14,7 @@ namespace Moodle.Api.Controllers.Core
 		{
 		}
 
-		public CommentsModel GetComments(CommentsInputModel commentsInputModel)
+		public Task<CommentsModel> GetComments(CommentsInputModel commentsInputModel)
 		{
 			return Post<CommentsModel,CommentsInputModel>("core_comment_get_comments", commentsInputModel);
 		}

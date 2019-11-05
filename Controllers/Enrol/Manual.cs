@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Moodle.Api.Models.Enrol;
 
 namespace Moodle.Api.Controllers.Enrol
@@ -13,14 +14,14 @@ namespace Moodle.Api.Controllers.Enrol
 		{
 		}
 
-		public void EnrolUsers(EnrolUsersInputModel enrolUsersInputModel)
+		public Task EnrolUsers(EnrolUsersInputModel enrolUsersInputModel)
 		{
-			Post<EnrolUsersInputModel>("enrol_manual_enrol_users", enrolUsersInputModel);
+			return Post<EnrolUsersInputModel>("enrol_manual_enrol_users", enrolUsersInputModel);
 		}
 
-		public void UnenrolUsers(UnenrolUsersInputModel unenrolUsersInputModel)
+		public Task UnenrolUsers(UnenrolUsersInputModel unenrolUsersInputModel)
 		{
-			Post<UnenrolUsersInputModel>("enrol_manual_unenrol_users", unenrolUsersInputModel);
+			return Post<UnenrolUsersInputModel>("enrol_manual_unenrol_users", unenrolUsersInputModel);
 		}
 
 		//Function Placeholder

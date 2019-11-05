@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Moodle.Api.Models.Core;
 
 namespace Moodle.Api.Controllers.Core
@@ -13,12 +14,12 @@ namespace Moodle.Api.Controllers.Core
 		{
 		}
 
-		public LoadFontawesomeIconMapModel LoadFontawesomeIconMap( )
+		public Task<LoadFontawesomeIconMapModel> LoadFontawesomeIconMap( )
 		{
 			return Post<LoadFontawesomeIconMapModel>("core_output_load_fontawesome_icon_map");
 		}
 
-		public string LoadTemplate(LoadTemplateInputModel loadTemplateInputModel)
+		public Task<string> LoadTemplate(LoadTemplateInputModel loadTemplateInputModel)
 		{
 			return Post<string,LoadTemplateInputModel>("core_output_load_template", loadTemplateInputModel);
 		}

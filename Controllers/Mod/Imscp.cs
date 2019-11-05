@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Moodle.Api.Models.Mod;
 
 namespace Moodle.Api.Controllers.Mod
@@ -13,12 +14,12 @@ namespace Moodle.Api.Controllers.Mod
 		{
 		}
 
-		public ImscpsByCoursesModel GetImscpsByCourses(DeleteCoursesInputModel deleteCoursesInputModel)
+		public Task<ImscpsByCoursesModel> GetImscpsByCourses(DeleteCoursesInputModel deleteCoursesInputModel)
 		{
 			return Post<ImscpsByCoursesModel,DeleteCoursesInputModel>("mod_imscp_get_imscps_by_courses", deleteCoursesInputModel);
 		}
 
-		public MarkCourseSelfCompletedModel ViewImscp(ViewImscpInputModel viewImscpInputModel)
+		public Task<MarkCourseSelfCompletedModel> ViewImscp(ViewImscpInputModel viewImscpInputModel)
 		{
 			return Post<MarkCourseSelfCompletedModel,ViewImscpInputModel>("mod_imscp_view_imscp", viewImscpInputModel);
 		}

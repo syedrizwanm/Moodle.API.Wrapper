@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Moodle.Api.Models.Mod;
 
 namespace Moodle.Api.Controllers.Mod
@@ -13,62 +14,62 @@ namespace Moodle.Api.Controllers.Mod
 		{
 		}
 
-		public ToolProxyModel CreateToolProxy(ToolProxyInputModel toolProxyInputModel)
+		public Task<ToolProxyModel> CreateToolProxy(ToolProxyInputModel toolProxyInputModel)
 		{
 			return Post<ToolProxyModel,ToolProxyInputModel>("mod_lti_create_tool_proxy", toolProxyInputModel);
 		}
 
-		public ToolTypeModel CreateToolType(ToolTypeInputModel toolTypeInputModel)
+		public Task<ToolTypeModel> CreateToolType(ToolTypeInputModel toolTypeInputModel)
 		{
 			return Post<ToolTypeModel,ToolTypeInputModel>("mod_lti_create_tool_type", toolTypeInputModel);
 		}
 
-		public ToolProxyModel DeleteToolProxy(ApprovePlanInputModel approvePlanInputModel)
+		public Task<ToolProxyModel> DeleteToolProxy(ApprovePlanInputModel approvePlanInputModel)
 		{
 			return Post<ToolProxyModel,ApprovePlanInputModel>("mod_lti_delete_tool_proxy", approvePlanInputModel);
 		}
 
-		public DeleteToolTypeModel DeleteToolType(ApprovePlanInputModel approvePlanInputModel)
+		public Task<DeleteToolTypeModel> DeleteToolType(ApprovePlanInputModel approvePlanInputModel)
 		{
 			return Post<DeleteToolTypeModel,ApprovePlanInputModel>("mod_lti_delete_tool_type", approvePlanInputModel);
 		}
 
-		public LtisByCoursesModel GetLtisByCourses(DeleteCoursesInputModel deleteCoursesInputModel)
+		public Task<LtisByCoursesModel> GetLtisByCourses(DeleteCoursesInputModel deleteCoursesInputModel)
 		{
 			return Post<LtisByCoursesModel,DeleteCoursesInputModel>("mod_lti_get_ltis_by_courses", deleteCoursesInputModel);
 		}
 
-		public ToolLaunchDataModel GetToolLaunchData(ToolLaunchDataInputModel toolLaunchDataInputModel)
+		public Task<ToolLaunchDataModel> GetToolLaunchData(ToolLaunchDataInputModel toolLaunchDataInputModel)
 		{
 			return Post<ToolLaunchDataModel,ToolLaunchDataInputModel>("mod_lti_get_tool_launch_data", toolLaunchDataInputModel);
 		}
 
-		public ToolProxiesModel GetToolProxies(ToolProxiesInputModel toolProxiesInputModel)
+		public Task<ToolProxiesModel> GetToolProxies(ToolProxiesInputModel toolProxiesInputModel)
 		{
 			return Post<ToolProxiesModel,ToolProxiesInputModel>("mod_lti_get_tool_proxies", toolProxiesInputModel);
 		}
 
-		public ToolProxyRegistrationRequestModel GetToolProxyRegistrationRequest(ApprovePlanInputModel approvePlanInputModel)
+		public Task<ToolProxyRegistrationRequestModel> GetToolProxyRegistrationRequest(ApprovePlanInputModel approvePlanInputModel)
 		{
 			return Post<ToolProxyRegistrationRequestModel,ApprovePlanInputModel>("mod_lti_get_tool_proxy_registration_request", approvePlanInputModel);
 		}
 
-		public ToolProxiesModel GetToolTypes(ToolTypesInputModel toolTypesInputModel)
+		public Task<ToolProxiesModel> GetToolTypes(ToolTypesInputModel toolTypesInputModel)
 		{
 			return Post<ToolProxiesModel,ToolTypesInputModel>("mod_lti_get_tool_types", toolTypesInputModel);
 		}
 
-		public IsCartridgeModel IsCartridge(IsCartridgeInputModel isCartridgeInputModel)
+		public Task<IsCartridgeModel> IsCartridge(IsCartridgeInputModel isCartridgeInputModel)
 		{
 			return Post<IsCartridgeModel,IsCartridgeInputModel>("mod_lti_is_cartridge", isCartridgeInputModel);
 		}
 
-		public ToolTypeModel UpdateToolType(UpdateToolTypeInputModel updateToolTypeInputModel)
+		public Task<ToolTypeModel> UpdateToolType(UpdateToolTypeInputModel updateToolTypeInputModel)
 		{
 			return Post<ToolTypeModel,UpdateToolTypeInputModel>("mod_lti_update_tool_type", updateToolTypeInputModel);
 		}
 
-		public MarkCourseSelfCompletedModel ViewLti(ViewLtiInputModel viewLtiInputModel)
+		public Task<MarkCourseSelfCompletedModel> ViewLti(ViewLtiInputModel viewLtiInputModel)
 		{
 			return Post<MarkCourseSelfCompletedModel,ViewLtiInputModel>("mod_lti_view_lti", viewLtiInputModel);
 		}

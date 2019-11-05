@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Moodle.Api.Models.Core;
 
 namespace Moodle.Api.Controllers.Core
@@ -13,14 +14,14 @@ namespace Moodle.Api.Controllers.Core
 		{
 		}
 
-		public void AssignRoles(AssignRolesInputModel assignRolesInputModel)
+		public Task AssignRoles(AssignRolesInputModel assignRolesInputModel)
 		{
-			Post<AssignRolesInputModel>("core_role_assign_roles", assignRolesInputModel);
+			return Post<AssignRolesInputModel>("core_role_assign_roles", assignRolesInputModel);
 		}
 
-		public void UnassignRoles(UnassignRolesInputModel unassignRolesInputModel)
+		public Task UnassignRoles(UnassignRolesInputModel unassignRolesInputModel)
 		{
-			Post<UnassignRolesInputModel>("core_role_unassign_roles", unassignRolesInputModel);
+			return Post<UnassignRolesInputModel>("core_role_unassign_roles", unassignRolesInputModel);
 		}
 
 		//Function Placeholder

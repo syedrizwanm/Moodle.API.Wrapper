@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Moodle.Api.Models.Core;
 
 namespace Moodle.Api.Controllers.Core
@@ -13,7 +14,7 @@ namespace Moodle.Api.Controllers.Core
 		{
 		}
 
-		public MarkCourseSelfCompletedModel UpdateFlag(FlagInputModel flagInputModel)
+		public Task<MarkCourseSelfCompletedModel> UpdateFlag(FlagInputModel flagInputModel)
 		{
 			return Post<MarkCourseSelfCompletedModel,FlagInputModel>("core_question_update_flag", flagInputModel);
 		}

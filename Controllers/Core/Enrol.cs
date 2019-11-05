@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Moodle.Api.Models.Core;
 
 namespace Moodle.Api.Controllers.Core
@@ -13,22 +14,22 @@ namespace Moodle.Api.Controllers.Core
 		{
 		}
 
-		public CourseEnrolmentMethodsModel GetCourseEnrolmentMethods(CourseBlocksInputModel courseBlocksInputModel)
+		public Task<CourseEnrolmentMethodsModel> GetCourseEnrolmentMethods(CourseBlocksInputModel courseBlocksInputModel)
 		{
 			return Post<CourseEnrolmentMethodsModel,CourseBlocksInputModel>("core_enrol_get_course_enrolment_methods", courseBlocksInputModel);
 		}
 
-		public EnrolledUsersModel GetEnrolledUsers(ContentsInputModel contentsInputModel)
+		public Task<EnrolledUsersModel> GetEnrolledUsers(ContentsInputModel contentsInputModel)
 		{
 			return Post<EnrolledUsersModel,ContentsInputModel>("core_enrol_get_enrolled_users", contentsInputModel);
 		}
 
-		public EnrolledUsersWithCapabilityModel GetEnrolledUsersWithCapability(EnrolledUsersWithCapabilityInputModel enrolledUsersWithCapabilityInputModel)
+		public Task<EnrolledUsersWithCapabilityModel> GetEnrolledUsersWithCapability(EnrolledUsersWithCapabilityInputModel enrolledUsersWithCapabilityInputModel)
 		{
 			return Post<EnrolledUsersWithCapabilityModel,EnrolledUsersWithCapabilityInputModel>("core_enrol_get_enrolled_users_with_capability", enrolledUsersWithCapabilityInputModel);
 		}
 
-		public UsersCoursesModel GetUsersCourses(UserPlansInputModel userPlansInputModel)
+		public Task<UsersCoursesModel> GetUsersCourses(UserPlansInputModel userPlansInputModel)
 		{
 			return Post<UsersCoursesModel,UserPlansInputModel>("core_enrol_get_users_courses", userPlansInputModel);
 		}

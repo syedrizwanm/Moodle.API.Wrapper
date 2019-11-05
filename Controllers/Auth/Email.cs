@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Moodle.Api.Models.Auth;
 
 namespace Moodle.Api.Controllers.Auth
@@ -13,12 +14,12 @@ namespace Moodle.Api.Controllers.Auth
 		{
 		}
 
-		public SignupSettingsModel GetSignupSettings( )
+		public Task<SignupSettingsModel> GetSignupSettings( )
 		{
 			return Post<SignupSettingsModel>("auth_email_get_signup_settings");
 		}
 
-		public SignupUserModel SignupUser(SignupUserInputModel signupUserInputModel)
+		public Task<SignupUserModel> SignupUser(SignupUserInputModel signupUserInputModel)
 		{
 			return Post<SignupUserModel,SignupUserInputModel>("auth_email_signup_user", signupUserInputModel);
 		}

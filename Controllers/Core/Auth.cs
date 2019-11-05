@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Moodle.Api.Models.Core;
 
 namespace Moodle.Api.Controllers.Core
@@ -13,7 +14,7 @@ namespace Moodle.Api.Controllers.Core
 		{
 		}
 
-		public SignupUserModel ConfirmUser(ConfirmUserInputModel confirmUserInputModel)
+		public Task<SignupUserModel> ConfirmUser(ConfirmUserInputModel confirmUserInputModel)
 		{
 			return Post<SignupUserModel,ConfirmUserInputModel>("core_auth_confirm_user", confirmUserInputModel);
 		}

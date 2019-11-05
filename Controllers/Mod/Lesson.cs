@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Moodle.Api.Models.Mod;
 
 namespace Moodle.Api.Controllers.Mod
@@ -13,87 +14,87 @@ namespace Moodle.Api.Controllers.Mod
 		{
 		}
 
-		public FinishAttemptModel FinishAttempt(FinishAttemptInputModel finishAttemptInputModel)
+		public Task<FinishAttemptModel> FinishAttempt(FinishAttemptInputModel finishAttemptInputModel)
 		{
 			return Post<FinishAttemptModel,FinishAttemptInputModel>("mod_lesson_finish_attempt", finishAttemptInputModel);
 		}
 
-		public AttemptsOverviewModel GetAttemptsOverview(AttemptsOverviewInputModel attemptsOverviewInputModel)
+		public Task<AttemptsOverviewModel> GetAttemptsOverview(AttemptsOverviewInputModel attemptsOverviewInputModel)
 		{
 			return Post<AttemptsOverviewModel,AttemptsOverviewInputModel>("mod_lesson_get_attempts_overview", attemptsOverviewInputModel);
 		}
 
-		public ContentPagesViewedModel GetContentPagesViewed(ContentPagesViewedInputModel contentPagesViewedInputModel)
+		public Task<ContentPagesViewedModel> GetContentPagesViewed(ContentPagesViewedInputModel contentPagesViewedInputModel)
 		{
 			return Post<ContentPagesViewedModel,ContentPagesViewedInputModel>("mod_lesson_get_content_pages_viewed", contentPagesViewedInputModel);
 		}
 
-		public LessonModel GetLesson(LessonInputModel lessonInputModel)
+		public Task<LessonModel> GetLesson(LessonInputModel lessonInputModel)
 		{
 			return Post<LessonModel,LessonInputModel>("mod_lesson_get_lesson", lessonInputModel);
 		}
 
-		public LessonAccessInformationModel GetLessonAccessInformation(LessonAccessInformationInputModel lessonAccessInformationInputModel)
+		public Task<LessonAccessInformationModel> GetLessonAccessInformation(LessonAccessInformationInputModel lessonAccessInformationInputModel)
 		{
 			return Post<LessonAccessInformationModel,LessonAccessInformationInputModel>("mod_lesson_get_lesson_access_information", lessonAccessInformationInputModel);
 		}
 
-		public LessonsByCoursesModel GetLessonsByCourses(DeleteCoursesInputModel deleteCoursesInputModel)
+		public Task<LessonsByCoursesModel> GetLessonsByCourses(DeleteCoursesInputModel deleteCoursesInputModel)
 		{
 			return Post<LessonsByCoursesModel,DeleteCoursesInputModel>("mod_lesson_get_lessons_by_courses", deleteCoursesInputModel);
 		}
 
-		public PageDataModel GetPageData(PageDataInputModel pageDataInputModel)
+		public Task<PageDataModel> GetPageData(PageDataInputModel pageDataInputModel)
 		{
 			return Post<PageDataModel,PageDataInputModel>("mod_lesson_get_page_data", pageDataInputModel);
 		}
 
-		public PagesModel GetPages(LessonInputModel lessonInputModel)
+		public Task<PagesModel> GetPages(LessonInputModel lessonInputModel)
 		{
 			return Post<PagesModel,LessonInputModel>("mod_lesson_get_pages", lessonInputModel);
 		}
 
-		public PagesPossibleJumpsModel GetPagesPossibleJumps(LessonAccessInformationInputModel lessonAccessInformationInputModel)
+		public Task<PagesPossibleJumpsModel> GetPagesPossibleJumps(LessonAccessInformationInputModel lessonAccessInformationInputModel)
 		{
 			return Post<PagesPossibleJumpsModel,LessonAccessInformationInputModel>("mod_lesson_get_pages_possible_jumps", lessonAccessInformationInputModel);
 		}
 
-		public QuestionsAttemptsModel GetQuestionsAttempts(QuestionsAttemptsInputModel questionsAttemptsInputModel)
+		public Task<QuestionsAttemptsModel> GetQuestionsAttempts(QuestionsAttemptsInputModel questionsAttemptsInputModel)
 		{
 			return Post<QuestionsAttemptsModel,QuestionsAttemptsInputModel>("mod_lesson_get_questions_attempts", questionsAttemptsInputModel);
 		}
 
-		public UserAttemptModel GetUserAttempt(UserAttemptInputModel userAttemptInputModel)
+		public Task<UserAttemptModel> GetUserAttempt(UserAttemptInputModel userAttemptInputModel)
 		{
 			return Post<UserAttemptModel,UserAttemptInputModel>("mod_lesson_get_user_attempt", userAttemptInputModel);
 		}
 
-		public UserAttemptGradeModel GetUserAttemptGrade(ContentPagesViewedInputModel contentPagesViewedInputModel)
+		public Task<UserAttemptGradeModel> GetUserAttemptGrade(ContentPagesViewedInputModel contentPagesViewedInputModel)
 		{
 			return Post<UserAttemptGradeModel,ContentPagesViewedInputModel>("mod_lesson_get_user_attempt_grade", contentPagesViewedInputModel);
 		}
 
-		public UserGradeModel GetUserGrade(UserGradeInputModel userGradeInputModel)
+		public Task<UserGradeModel> GetUserGrade(UserGradeInputModel userGradeInputModel)
 		{
 			return Post<UserGradeModel,UserGradeInputModel>("mod_lesson_get_user_grade", userGradeInputModel);
 		}
 
-		public UserTimersModel GetUserTimers(UserGradeInputModel userGradeInputModel)
+		public Task<UserTimersModel> GetUserTimers(UserGradeInputModel userGradeInputModel)
 		{
 			return Post<UserTimersModel,UserGradeInputModel>("mod_lesson_get_user_timers", userGradeInputModel);
 		}
 
-		public LaunchAttemptModel LaunchAttempt(LaunchAttemptInputModel launchAttemptInputModel)
+		public Task<LaunchAttemptModel> LaunchAttempt(LaunchAttemptInputModel launchAttemptInputModel)
 		{
 			return Post<LaunchAttemptModel,LaunchAttemptInputModel>("mod_lesson_launch_attempt", launchAttemptInputModel);
 		}
 
-		public ProcessPage ProcessPage(ProcessPageInputModel processPageInputModel)
+		public Task<ProcessPage> ProcessPage(ProcessPageInputModel processPageInputModel)
 		{
 			return Post<ProcessPage,ProcessPageInputModel>("mod_lesson_process_page", processPageInputModel);
 		}
 
-		public MarkCourseSelfCompletedModel ViewLesson(LessonInputModel lessonInputModel)
+		public Task<MarkCourseSelfCompletedModel> ViewLesson(LessonInputModel lessonInputModel)
 		{
 			return Post<MarkCourseSelfCompletedModel,LessonInputModel>("mod_lesson_view_lesson", lessonInputModel);
 		}

@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Moodle.Api.Models.Core;
 
 namespace Moodle.Api.Controllers.Core
@@ -13,12 +14,12 @@ namespace Moodle.Api.Controllers.Core
 		{
 		}
 
-		public RatingModel AddRating(RatingInputModel ratingInputModel)
+		public Task<RatingModel> AddRating(RatingInputModel ratingInputModel)
 		{
 			return Post<RatingModel,RatingInputModel>("core_rating_add_rating", ratingInputModel);
 		}
 
-		public ItemRatingsModel GetItemRatings(ItemRatingsInputModel itemRatingsInputModel)
+		public Task<ItemRatingsModel> GetItemRatings(ItemRatingsInputModel itemRatingsInputModel)
 		{
 			return Post<ItemRatingsModel,ItemRatingsInputModel>("core_rating_get_item_ratings", itemRatingsInputModel);
 		}

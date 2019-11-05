@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Moodle.Api.Models.Mod;
 
 namespace Moodle.Api.Controllers.Mod
@@ -13,9 +14,9 @@ namespace Moodle.Api.Controllers.Mod
 		{
 		}
 
-		public LabelsByCoursesModel GetLabelsByCourses(DeleteCoursesInputModel deleteCoursesInputModel)
+		public Task<LabelsByCoursesModel> GetLabelsByCourses(DeleteCoursesInputModel deleteCoursesInputModel)
 		{
-			return Post<LabelsByCoursesModel,DeleteCoursesInputModel>("mod_label_get_labels_by_courses", deleteCoursesInputModel);
+			return Post<LabelsByCoursesModel, DeleteCoursesInputModel>("mod_label_get_labels_by_courses", deleteCoursesInputModel);
 		}
 
 		//Function Placeholder

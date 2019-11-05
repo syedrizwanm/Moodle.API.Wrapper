@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Moodle.Api.Models.Core;
 
 namespace Moodle.Api.Controllers.Core
@@ -13,7 +14,7 @@ namespace Moodle.Api.Controllers.Core
 		{
 		}
 
-		public SiteInfoModel GetSiteInfo(SiteInfoInputModel siteInfoInputModel)
+		public Task<SiteInfoModel> GetSiteInfo(SiteInfoInputModel siteInfoInputModel)
 		{
 			return Post<SiteInfoModel,SiteInfoInputModel>("core_webservice_get_site_info", siteInfoInputModel);
 		}

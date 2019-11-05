@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Moodle.Api.Models.Core;
 
 namespace Moodle.Api.Controllers.Core
@@ -13,7 +14,7 @@ namespace Moodle.Api.Controllers.Core
 		{
 		}
 
-		public CourseBlocksModel GetCourseBlocks(CourseBlocksInputModel courseBlocksInputModel)
+		public Task<CourseBlocksModel> GetCourseBlocks(CourseBlocksInputModel courseBlocksInputModel)
 		{
 			return Post<CourseBlocksModel,CourseBlocksInputModel>("core_block_get_course_blocks", courseBlocksInputModel);
 		}

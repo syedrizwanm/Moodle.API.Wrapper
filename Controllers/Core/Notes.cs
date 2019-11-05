@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Moodle.Api.Models.Core;
 
 namespace Moodle.Api.Controllers.Core
@@ -13,32 +14,32 @@ namespace Moodle.Api.Controllers.Core
 		{
 		}
 
-		public NotesModel CreateNotes(NotesInputModel notesInputModel)
+		public Task<NotesModel> CreateNotes(NotesInputModel notesInputModel)
 		{
 			return Post<NotesModel,NotesInputModel>("core_notes_create_notes", notesInputModel);
 		}
 
-		public BlockContactsModel DeleteNotes(DeleteNotesInputModel deleteNotesInputModel)
+		public Task<BlockContactsModel> DeleteNotes(DeleteNotesInputModel deleteNotesInputModel)
 		{
 			return Post<BlockContactsModel,DeleteNotesInputModel>("core_notes_delete_notes", deleteNotesInputModel);
 		}
 
-		public CourseNotesModel GetCourseNotes(ActivitiesCompletionStatusInputModel activitiesCompletionStatusInputModel)
+		public Task<CourseNotesModel> GetCourseNotes(ActivitiesCompletionStatusInputModel activitiesCompletionStatusInputModel)
 		{
 			return Post<CourseNotesModel,ActivitiesCompletionStatusInputModel>("core_notes_get_course_notes", activitiesCompletionStatusInputModel);
 		}
 
-		public GetNotes GetNotes(DeleteNotesInputModel deleteNotesInputModel)
+		public Task<GetNotes> GetNotes(DeleteNotesInputModel deleteNotesInputModel)
 		{
 			return Post<GetNotes,DeleteNotesInputModel>("core_notes_get_notes", deleteNotesInputModel);
 		}
 
-		public BlockContactsModel UpdateNotes(NotesInputModel notesInputModel)
+		public Task<BlockContactsModel> UpdateNotes(NotesInputModel notesInputModel)
 		{
 			return Post<BlockContactsModel,NotesInputModel>("core_notes_update_notes", notesInputModel);
 		}
 
-		public MarkCourseSelfCompletedModel ViewNotes(ActivitiesCompletionStatusInputModel activitiesCompletionStatusInputModel)
+		public Task<MarkCourseSelfCompletedModel> ViewNotes(ActivitiesCompletionStatusInputModel activitiesCompletionStatusInputModel)
 		{
 			return Post<MarkCourseSelfCompletedModel,ActivitiesCompletionStatusInputModel>("core_notes_view_notes", activitiesCompletionStatusInputModel);
 		}

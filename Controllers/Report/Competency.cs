@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Moodle.Api.Models.Report;
 
 namespace Moodle.Api.Controllers.Report
@@ -13,7 +14,7 @@ namespace Moodle.Api.Controllers.Report
 		{
 		}
 
-		public DataForReportModel DataForReport(ActivitiesCompletionStatusInputModel activitiesCompletionStatusInputModel)
+		public Task<DataForReportModel> DataForReport(ActivitiesCompletionStatusInputModel activitiesCompletionStatusInputModel)
 		{
 			return Post<DataForReportModel,ActivitiesCompletionStatusInputModel>("report_competency_data_for_report", activitiesCompletionStatusInputModel);
 		}

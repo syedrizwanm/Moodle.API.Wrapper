@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Moodle.Api.Models.Core;
 
 namespace Moodle.Api.Controllers.Core
@@ -13,7 +14,7 @@ namespace Moodle.Api.Controllers.Core
 		{
 		}
 
-		public UserBadgesModel GetUserBadges(UserBadgesInputModel userBadgesInputModel)
+		public Task<UserBadgesModel> GetUserBadges(UserBadgesInputModel userBadgesInputModel)
 		{
 			return Post<UserBadgesModel,UserBadgesInputModel>("core_badges_get_user_badges", userBadgesInputModel);
 		}

@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Moodle.Api.Models.Core;
 
 namespace Moodle.Api.Controllers.Core
@@ -13,12 +14,12 @@ namespace Moodle.Api.Controllers.Core
 		{
 		}
 
-		public GradesModel GetGrades(GradesInputModel gradesInputModel)
+		public Task<GradesModel> GetGrades(GradesInputModel gradesInputModel)
 		{
 			return Post<GradesModel,GradesInputModel>("core_grades_get_grades", gradesInputModel);
 		}
 
-		public int UpdateGrades(UpdateGradesInputModel updateGradesInputModel)
+		public Task<int> UpdateGrades(UpdateGradesInputModel updateGradesInputModel)
 		{
 			return Post<int,UpdateGradesInputModel>("core_grades_update_grades", updateGradesInputModel);
 		}

@@ -2,103 +2,75 @@
 using System.Net.Http;
 using System.Threading.Tasks;
 using Moodle.Api.Models;
+using Newtonsoft.Json;
 
 namespace Moodle.Api.Controllers
 {
     public class BaseController
     {
-        private HttpClient moodleClient;
-        private string _token;
-        private Func<string, Task> WriteProgress;
+        private readonly HttpClient _moodleClient;
+        private readonly string _token;
+
         public BaseController()
         {
-
         }
+
         public BaseController(string token, string url)
         {
-            SetupController(token, url);
-        }
-
-        public void SetupController(string token, string url)
-        {
-            moodleClient = new HttpClient();
-            moodleClient.BaseAddress = new Uri(url + "/webservice/rest/");
+            _moodleClient = new HttpClient { BaseAddress = new Uri(url + "/webservice/rest/") };
             _token = token;
         }
 
-        public void SetupController(string securityToken, string url, Func<string, Task> writeProgress)
-        {
-            SetupController(securityToken, url);
-            WriteProgress = writeProgress;
-        }
-
-        protected TModel Post<TModel, TInputModel> (string functionName,TInputModel inputModel)
-            where TInputModel:IModel
-        {
-            try
-            {
-
-                var inputPairs = inputModel.ToKeyValuePairs();
-                var inputContent = new FormUrlEncodedContent(inputPairs); 
-                var response = moodleClient.PostAsync("server.php?wstoken=" + _token + "&moodlewsrestformat=json&wsfunction=" + functionName,inputContent).Result;
-                var responseText = response.Content.ReadAsStringAsync().Result;
-                if (response.StatusCode == System.Net.HttpStatusCode.OK)
-                {
-                    if (responseText.Contains("\"exception\":"))
-                    {
-                        throw new InvalidOperationException(responseText);
-                    }
-                    return Newtonsoft.Json.JsonConvert.DeserializeObject<TModel>(responseText);
-                }
-                else
-                    throw new InvalidOperationException(responseText);
-            }
-            catch (Exception ex)
-            {
-                WriteProgress("~~~~~Error~~~~~\nFunction: " + functionName + "\n~~~~~Exception~~~~~\n" + ex.ToString().Replace("\\n","\n") + "\n~~~~~~~~~~~~~~~");
-                return default(TModel);
-            }
-        }
-        protected void Post<TInputModel>(string functionName, TInputModel inputModel)
+        protected async Task<TModel> Post<TModel, TInputModel>(string functionName, TInputModel inputModel)
             where TInputModel : IModel
         {
-            try
+            var inputPairs = inputModel.ToKeyValuePairs();
+            var inputContent = new FormUrlEncodedContent(inputPairs);
+            var response = await _moodleClient
+                .PostAsync("server.php?wstoken=" + _token + "&moodlewsrestformat=json&wsfunction=" + functionName,
+                    inputContent).ConfigureAwait(false);
+            var responseText = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+            if (response.IsSuccessStatusCode)
             {
-                var inputPairs = inputModel.ToKeyValuePairs();
-                var inputContent = new FormUrlEncodedContent(inputPairs);
-                var response = moodleClient.PostAsync("server.php?wstoken=" + _token + "&moodlewsrestformat=json&wsfunction=" + functionName, inputContent).Result;
-                var responseText = response.Content.ReadAsStringAsync().Result;
-                if (response.StatusCode != System.Net.HttpStatusCode.OK || responseText.Contains("\"exception\":"))
-                    throw new InvalidOperationException(responseText);
-            }
-            catch (Exception ex)
-            {
-                WriteProgress("~~~~~Error~~~~~\nFunction: " + functionName + "\n~~~~~Exception~~~~~\n" + ex.ToString() + "\n~~~~~~~~~~~~~~~");
-            }
-        }
-        protected TModel Post<TModel>(string functionName)
-        {
-            try
-            {
-                var response = moodleClient.PostAsync("&wsfunction=" + functionName, null).Result;
-                var responseText = response.Content.ReadAsStringAsync().Result;
-                if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                if (responseText.Contains("\"exception\":"))
                 {
-                    if (responseText.Contains("\"exception\":"))
-                    {
-                        throw new InvalidOperationException(responseText);
-                    }
-                    return Newtonsoft.Json.JsonConvert.DeserializeObject<TModel>(responseText);
-                }
-                else
                     throw new InvalidOperationException(responseText);
+                }
+
+                return JsonConvert.DeserializeObject<TModel>(responseText);
             }
-            catch (Exception ex)
-            {
-                WriteProgress("~~~~~Error~~~~~\nFunction: " + functionName + "\n~~~~~Exception~~~~~\n" + ex.ToString() + "\n~~~~~~~~~~~~~~~");
-                return default(TModel);
-            }
+
+            throw new InvalidOperationException(responseText);
         }
-     
+
+        protected async Task Post<TInputModel>(string functionName, TInputModel inputModel)
+            where TInputModel : IModel
+        {
+            var inputPairs = inputModel.ToKeyValuePairs();
+            var inputContent = new FormUrlEncodedContent(inputPairs);
+            var response = await _moodleClient
+                .PostAsync("server.php?wstoken=" + _token + "&moodlewsrestformat=json&wsfunction=" + functionName,
+                    inputContent).ConfigureAwait(false);
+            var responseText = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+            if (!response.IsSuccessStatusCode || responseText.Contains("\"exception\":"))
+                throw new InvalidOperationException(responseText);
+        }
+
+        protected async Task<TModel> Post<TModel>(string functionName)
+        {
+            var response = await _moodleClient.PostAsync("&wsfunction=" + functionName, null).ConfigureAwait(false);
+            var responseText = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+            if (response.IsSuccessStatusCode)
+            {
+                if (responseText.Contains("\"exception\":"))
+                {
+                    throw new InvalidOperationException(responseText);
+                }
+
+                return JsonConvert.DeserializeObject<TModel>(responseText);
+            }
+
+            throw new InvalidOperationException(responseText);
+        }
     }
 }

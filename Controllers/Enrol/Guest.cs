@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Moodle.Api.Models.Enrol;
 
 namespace Moodle.Api.Controllers.Enrol
@@ -13,7 +14,7 @@ namespace Moodle.Api.Controllers.Enrol
 		{
 		}
 
-		public InstanceInfoModel GetInstanceInfo(InstanceInfoInputModel instanceInfoInputModel)
+		public Task<InstanceInfoModel> GetInstanceInfo(InstanceInfoInputModel instanceInfoInputModel)
 		{
 			return Post<InstanceInfoModel,InstanceInfoInputModel>("enrol_guest_get_instance_info", instanceInfoInputModel);
 		}

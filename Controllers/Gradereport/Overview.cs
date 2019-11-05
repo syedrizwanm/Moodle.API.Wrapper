@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Moodle.Api.Models.Gradereport;
 
 namespace Moodle.Api.Controllers.Gradereport
@@ -13,12 +14,12 @@ namespace Moodle.Api.Controllers.Gradereport
 		{
 		}
 
-		public CourseGradesModel GetCourseGrades(UserPlansInputModel userPlansInputModel)
+		public Task<CourseGradesModel> GetCourseGrades(UserPlansInputModel userPlansInputModel)
 		{
 			return Post<CourseGradesModel,UserPlansInputModel>("gradereport_overview_get_course_grades", userPlansInputModel);
 		}
 
-		public MarkCourseSelfCompletedModel ViewGradeReport(ActivitiesCompletionStatusInputModel activitiesCompletionStatusInputModel)
+		public Task<MarkCourseSelfCompletedModel> ViewGradeReport(ActivitiesCompletionStatusInputModel activitiesCompletionStatusInputModel)
 		{
 			return Post<MarkCourseSelfCompletedModel,ActivitiesCompletionStatusInputModel>("gradereport_overview_view_grade_report", activitiesCompletionStatusInputModel);
 		}

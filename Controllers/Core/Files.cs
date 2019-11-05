@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Moodle.Api.Models.Core;
 
 namespace Moodle.Api.Controllers.Core
@@ -13,12 +14,12 @@ namespace Moodle.Api.Controllers.Core
 		{
 		}
 
-		public FilesModel GetFiles(FilesInputModel filesInputModel)
+		public Task<FilesModel> GetFiles(FilesInputModel filesInputModel)
 		{
 			return Post<FilesModel,FilesInputModel>("core_files_get_files", filesInputModel);
 		}
 
-		public UploadModel Upload(UploadInputModel uploadInputModel)
+		public Task<UploadModel> Upload(UploadInputModel uploadInputModel)
 		{
 			return Post<UploadModel,UploadInputModel>("core_files_upload", uploadInputModel);
 		}

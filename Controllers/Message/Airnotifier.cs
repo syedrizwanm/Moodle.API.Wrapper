@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Moodle.Api.Models.Message;
 
 namespace Moodle.Api.Controllers.Message
@@ -13,22 +14,22 @@ namespace Moodle.Api.Controllers.Message
 		{
 		}
 
-		public AreNotificationPreferencesConfiguredModel AreNotificationPreferencesConfigured(DeleteUsersInputModel deleteUsersInputModel)
+		public Task<AreNotificationPreferencesConfiguredModel> AreNotificationPreferencesConfigured(DeleteUsersInputModel deleteUsersInputModel)
 		{
 			return Post<AreNotificationPreferencesConfiguredModel,DeleteUsersInputModel>("message_airnotifier_are_notification_preferences_configured", deleteUsersInputModel);
 		}
 
-		public SignupUserModel EnableDevice(EnableDeviceInputModel enableDeviceInputModel)
+		public Task<SignupUserModel> EnableDevice(EnableDeviceInputModel enableDeviceInputModel)
 		{
 			return Post<SignupUserModel,EnableDeviceInputModel>("message_airnotifier_enable_device", enableDeviceInputModel);
 		}
 
-		public UserDevicesModel GetUserDevices(UserDevicesInputModel userDevicesInputModel)
+		public Task<UserDevicesModel> GetUserDevices(UserDevicesInputModel userDevicesInputModel)
 		{
 			return Post<UserDevicesModel,UserDevicesInputModel>("message_airnotifier_get_user_devices", userDevicesInputModel);
 		}
 
-		public int IsSystemConfigured( )
+		public Task<int> IsSystemConfigured( )
 		{
 			return Post<int>("message_airnotifier_is_system_configured");
 		}
