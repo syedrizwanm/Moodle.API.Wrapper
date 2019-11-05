@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Moodle.API.Wrapper.Models.Mod
+namespace Moodle.Api.Models.Mod
 {
 	public sealed class ToolTypesInputModel : IModel 
 	{

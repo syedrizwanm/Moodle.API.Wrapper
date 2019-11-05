@@ -1,11 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Moodle.API.Wrapper.Models.Enrol;
+using Moodle.Api.Models.Enrol;
 
-namespace Moodle.API.Wrapper.Controllers.Enrol
+namespace Moodle.Api.Controllers.Enrol
 {
 	public sealed class Guest : BaseController
 	{

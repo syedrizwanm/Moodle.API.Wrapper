@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Moodle.API.Wrapper.Models.Message
+namespace Moodle.Api.Models.Message
 {
 	public sealed class AreNotificationPreferencesConfiguredModel : IModel 
 	{

@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Moodle.API.Wrapper.Models.Auth
+namespace Moodle.Api.Models.Auth
 {
 	public sealed class CustomprofilefieldInputModel : IModel 
 	{
