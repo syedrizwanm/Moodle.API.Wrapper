@@ -19,9 +19,9 @@ namespace Moodle.Api.Controllers.Core
 			return Post<ChecksModel,ChecksInputModel>("core_course_check_updates", checksInputModel);
 		}
 
-		public Task<ScaleValuesModel> CreateCategories(CategoriesInputModel categoriesInputModel)
+		public Task<ScaleValuesModel[]> CreateCategories(CategoriesInputModel categoriesInputModel)
 		{
-			return Post<ScaleValuesModel,CategoriesInputModel>("core_course_create_categories", categoriesInputModel);
+			return Post<ScaleValuesModel[],CategoriesInputModel>("core_course_create_categories", categoriesInputModel);
 		}
 
 		public Task<CoursesModel> CreateCourses(CoursesInputModel coursesInputModel)

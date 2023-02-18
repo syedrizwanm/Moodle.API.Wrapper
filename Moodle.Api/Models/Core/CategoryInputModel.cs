@@ -5,9 +5,12 @@ namespace Moodle.Api.Models.Core
 	public sealed class CategoryInputModel : IModel 
 	{
 
-		public int id {get;set;}
-		public int newparent {get;set;}
-		public int recursive {get;set;}
+		public string name { get; set; }
+		public int parent { get; set; } = 0;
+		public string idnumber { get; set; }
+		public string description { get; set; }
+		public int descriptionformat { get; set; }
+		public string theme { get; set; }
 
 
 
@@ -16,9 +19,8 @@ namespace Moodle.Api.Models.Core
 		{
 			var keyValuePairs = new List<KeyValuePair<string,string>>();
 
-			keyValuePairs.Add(new KeyValuePair<string,string>(ModelHelper.GetPrefixedName("id",prefix),id.ToString()));
-			keyValuePairs.Add(new KeyValuePair<string,string>(ModelHelper.GetPrefixedName("newparent",prefix),newparent.ToString()));
-			keyValuePairs.Add(new KeyValuePair<string,string>(ModelHelper.GetPrefixedName("recursive",prefix),recursive.ToString()));
+			keyValuePairs.Add(new KeyValuePair<string,string>(ModelHelper.GetPrefixedName("name", prefix), name.ToString())); 
+			keyValuePairs.Add(new KeyValuePair<string,string>(ModelHelper.GetPrefixedName("parent", prefix), parent.ToString())); 
 			return keyValuePairs;
 		}
 
