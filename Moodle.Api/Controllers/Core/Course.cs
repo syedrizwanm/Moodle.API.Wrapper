@@ -24,9 +24,16 @@ namespace Moodle.Api.Controllers.Core
 			return Post<ScaleValuesModel[],CategoriesInputModel>("core_course_create_categories", categoriesInputModel);
 		}
 
-		public Task<CoursesModel> CreateCourses(CoursesInputModel coursesInputModel)
+
+		// Fixed - Working
+		/// <summary>
+		/// Using for create one or more categories.
+		/// </summary>
+		/// <param name="coursesInputModel"></param>
+		/// <returns>Created Categories List</returns>
+		public Task<CoursesModel[]> CreateCourses(CoursesInputModel coursesInputModel)
 		{
-			return Post<CoursesModel,CoursesInputModel>("core_course_create_courses", coursesInputModel);
+			return Post<CoursesModel[],CoursesInputModel>("core_course_create_courses", coursesInputModel);
 		}
 
 		public Task DeleteCategories(DeleteCategoriesInputModel deleteCategoriesInputModel)
@@ -64,9 +71,16 @@ namespace Moodle.Api.Controllers.Core
 			return Post<ActivitiesOverviewModel,DeleteCoursesInputModel>("core_course_get_activities_overview", deleteCoursesInputModel);
 		}
 
-		public Task<CategoriesModel> GetCategories(GetCategoriesInputModel getCategoriesInputModel)
+
+		// Fixed - Working
+		/// <summary>
+		/// This Getting All Course Categories. -No paramater-
+		/// </summary>
+		/// <param name="getCategoriesInputModel"></param>
+		/// <returns>CategoriesModel Series</returns>
+		public Task<CategoriesModel[]> GetCategories(GetCategoriesInputModel getCategoriesInputModel)
 		{
-			return Post<CategoriesModel,GetCategoriesInputModel>("core_course_get_categories", getCategoriesInputModel);
+			return Post<CategoriesModel[],GetCategoriesInputModel>("core_course_get_categories", getCategoriesInputModel);
 		}
 
 		public Task<ContentsModel> GetContents(ContentsInputModel contentsInputModel)

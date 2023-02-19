@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace Moodle.Api.Models.Core
 {
-	public sealed class CoursesInputModel : IModel 
+	public sealed class CoursesInputModel : RequestStringGenerator, IModel
 	{
 
 		public List<CoursInputModel> courses {get;set;}
@@ -14,8 +14,11 @@ namespace Moodle.Api.Models.Core
 		{
 			var keyValuePairs = new List<KeyValuePair<string,string>>();
 
+			keyValuePairs.AddRange(DynamicKeyValuePairsOnlyNonList(prefix));
 
-			for(var coursesIndex = 0; coursesIndex<courses.Count;coursesIndex++) 
+
+
+			for (var coursesIndex = 0; coursesIndex<courses.Count;coursesIndex++) 
 			{
 				var coursesItem = courses[coursesIndex];
 				var coursesItems = coursesItem.ToKeyValuePairs("courses[" + coursesIndex + "]");
